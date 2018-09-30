@@ -1,0 +1,23 @@
+{
+  "name": "Portfolio",
+  "description": "Marshall Tuinier Portfolio",
+  "license": "MIT",
+  "scripts": {
+    "develop": "gatsby develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve"
+  },
+  "dependencies": {
+    "babel-plugin-styled-components": "^1.7.1",
+    "gatsby": "^2.0.0",
+    "gatsby-plugin-page-transitions": "^1.0.7",
+    "gatsby-plugin-styled-components": "^3.0.0",
+    "gatsby-plugin-typography": "^2.2.0",
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-typography": "^0.16.13",
+    "styled-components": "^4.0.0-beta.9",
+    "typography": "^0.16.17",
+    "typography-theme-moraga": "^0.15.10"
+  }
+}
