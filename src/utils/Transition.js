@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PageTransition from "gatsby-plugin-page-transitions";
-import background from "../assets/background.jpg";
+
 class Transition extends Component {
   render() {
     return (
@@ -23,7 +23,7 @@ class Transition extends Component {
   }
 }
 
-class Blur extends Component {
+class BlurBg extends Component {
   render() {
     return (
       <PageTransition
@@ -31,14 +31,11 @@ class Blur extends Component {
           filter: "blur(2px)",
           background: " #000",
           margin: 0,
-          backgroundImage: `url(${background})`,
           position: "fixed",
           width: "100%",
           height: "100vh",
           top: "0",
           left: "0",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat",
           transform: "scale(1.1)",
           transition: "filter 625ms ease-out"
         }}
@@ -55,4 +52,4 @@ class Blur extends Component {
   }
 }
 
-export { Transition, Blur };
+export { Transition, BlurBg };

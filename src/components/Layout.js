@@ -1,21 +1,44 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-
-import { Transition, Blur } from "../utils/Transition";
+import { StaticQuery, graphql } from "gatsby";
+import Img from "gatsby-image";
+import { Transition } from "../utils/Transition";
 
 class Layout extends Component {
   render() {
-    const { location, children } = this.props;
-
+    const { children } = this.props;
     return (
-      <StyledLayout>
-        <Blur location={location}>
-          <Background location={location} />
-        </Blur>
-        <BgMask />
-
-        <Transition>{children}</Transition>
-      </StyledLayout>
+      <StaticQuery
+        query={graphql`
+          query {
+            background: file(relativePath: { eq: "background.jpg" }) {
+              childImageSharp {
+                fluid(maxWidth: 2800) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
+          }
+        `}
+        render={data =>
+          console.log(data) || (
+            <StyledLayout>
+              <Img
+                fluid={data.background.childImageSharp.fluid}
+                style={{
+                  position: "absolute",
+                  left: 0,
+                  top: 0,
+                  width: "100%",
+                  height: "100%"
+                }}
+              />
+              <BgMask />
+              <Transition>{children}</Transition>
+            </StyledLayout>
+          )
+        }
+      />
     );
   }
 }
@@ -41,8 +64,6 @@ const StyledLayout = styled.main`
     color: white;
   }
 `;
-
-const Background = styled.div``;
 
 const BgMask = styled.div`
   background-color: #111;
