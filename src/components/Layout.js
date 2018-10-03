@@ -20,24 +20,22 @@ class Layout extends Component {
             }
           }
         `}
-        render={data =>
-          console.log(data) || (
-            <StyledLayout>
-              <Img
-                fluid={data.background.childImageSharp.fluid}
-                style={{
-                  position: "absolute",
-                  left: 0,
-                  top: 0,
-                  width: "100%",
-                  height: "100%"
-                }}
-              />
-              <BgMask />
-              <Transition>{children}</Transition>
-            </StyledLayout>
-          )
-        }
+        render={data => (
+          <StyledLayout>
+            <Img
+              fluid={data.background.childImageSharp.fluid}
+              style={{
+                position: "absolute",
+                left: 0,
+                top: 0,
+                width: "100%",
+                height: "100%",
+              }}
+            />
+            <BgMask />
+            <Transition>{children}</Transition>
+          </StyledLayout>
+        )}
       />
     );
   }

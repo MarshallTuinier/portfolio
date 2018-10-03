@@ -1,20 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 export default class GridItem extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      fullGrid: false
-    };
-  }
-
-  handleClick = () => {
-    this.setState(prevState => {
-      return {
-        fullGrid: !prevState.fullGrid
-      };
-    });
-  };
+  handleClick = () => {};
 
   render() {
     const { rowStart, colStart, rowEnd, colEnd, background } = this.props;
@@ -33,15 +20,20 @@ export default class GridItem extends Component {
 }
 
 const StyledGridItem = styled.div`
-  grid-area: ${props =>
-    !props.fullGrid
-      ? `${props.rowStart} / ${props.colStart} / ${props.rowEnd} / ${
-          props.colEnd
-        } `
-      : `1 / 1 / 4 / 4`};
-  height: 250px;
-  width: 250px;
-  transition: all 1s ease-in-out;
+  height: 55vw;
+  width: 55vw;
+  margin: 0 auto;
+  margin-top: 30px;
   background-color: ${props => `${props.background}`};
-  flex: auto;
+  @media (min-width: 769px) {
+    grid-area: ${props =>
+      !props.fullGrid
+        ? `${props.rowStart} / ${props.colStart} / ${props.rowEnd} / ${
+            props.colEnd
+          } `
+        : `1 / 1 / 4 / 4`};
+    height: 200px;
+    width: 200px;
+    margin-top: 0;
+  }
 `;

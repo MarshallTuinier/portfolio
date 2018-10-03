@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 class indexPage extends Component {
   state = {
-    open: false
+    open: false,
   };
 
   componentDidMount() {
@@ -21,9 +21,9 @@ class indexPage extends Component {
         </StyledMain>
         <StyledNav>
           <ul>
-            <Link to="/Intro">INTRO</Link>
-            <Link to="/Work">WORK</Link>
             <Link to="/About">ABOUT</Link>
+            <Link to="/Work">WORK</Link>
+
             <Link to="/Contact">CONTACT</Link>
           </ul>
         </StyledNav>
@@ -111,7 +111,6 @@ const StyledNav = styled.nav`
     ul {
       flex-direction: row;
       a {
-        width: 25%;
         height: 100%;
         border-left: 1px solid white;
         border-top: none;
