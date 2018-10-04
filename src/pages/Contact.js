@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import Layout from "../components/Layout";
 import Subpage from "../components/Subpage";
 import styled from "styled-components";
+import Github from '../assets/svg/github'
+import Linkedin from '../assets/svg/Linkedin'
+import Twitter from '../assets/svg/Twitter'
 import { validateEmail } from "../utils/validateEmail";
 export default class Contact extends Component {
   state = {
@@ -41,6 +44,7 @@ export default class Contact extends Component {
       <Layout location={this.props.location}>
         <Subpage>
           <h1>CONTACT</h1>
+          <h3>Let's build something awesome together.</h3>
           <Form name="contact" onSubmit={this.handleSubmit}>
             <div className="upper">
               <section>
@@ -95,6 +99,9 @@ export default class Contact extends Component {
               htmlFor="contact"
               type="submit"
               onSubmit={this.handleSubmit}
+              style={{
+                background: "#FFF"
+              }}
             >
               SUBMIT
             </Button>
@@ -111,7 +118,16 @@ export default class Contact extends Component {
               CLEAR
             </Button>
           </Form>
+          <IconContainer>
+            <StyledLink href="https://github.com/marshalltuinier" target="_blank" rel="noopener noreferrer">
+              <Github />
+            </StyledLink>
+            <StyledLink href="https://linkedin.com/marshalltuinier" target="_blank" rel="noopener noreferrer">
+              <Linkedin />
+            </StyledLink>
+          </IconContainer>
         </Subpage>
+
       </Layout>
     );
   }
@@ -174,4 +190,27 @@ const Button = styled.button`
   border-radius: 5px;
   border: none;
   outline: none;
+
+  & :active {
+    transform: translateY(1px);
+  }
 `;
+
+const StyledLink = styled.a`
+  svg {
+    transition: transform .25s ease;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+`
+const IconContainer = styled.div`
+  width: 8rem;
+  display: flex;
+  justify-content: space-between;
+  margin: 2.5rem 0 0 0;
+`
+
+
+
+

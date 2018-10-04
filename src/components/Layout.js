@@ -61,6 +61,10 @@ const StyledLayout = styled.main`
   a {
     color: white;
   }
+
+  h3 {
+    margin: 2rem 0;
+  }
 `;
 
 const BgMask = styled.div`

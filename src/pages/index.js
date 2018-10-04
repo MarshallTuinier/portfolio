@@ -4,18 +4,12 @@ import Layout from "../components/Layout";
 import styled from "styled-components";
 
 class indexPage extends Component {
-  state = {
-    open: false,
-  };
 
-  componentDidMount() {
-    this.setState({ open: true });
-  }
 
   render() {
     return (
-      <Layout location={this.props.location}>
-        <StyledMain open={this.state.open}>
+      <Layout>
+        <StyledMain>
           <h1>MARSHALL TUINIER</h1>
           <h3>Hello! I'm a web developer from Las Vegas, Nevada.</h3>
         </StyledMain>
