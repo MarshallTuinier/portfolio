@@ -1,21 +1,19 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import Img from "gatsby-image"
 export default class GridItem extends Component {
-  handleClick = () => {};
 
   render() {
-    const { rowStart, colStart, rowEnd, colEnd, background } = this.props;
+    const { title, description, fluid } = this.props
     return (
-      <StyledGridItem
-        rowStart={rowStart}
-        colStart={colStart}
-        rowEnd={rowEnd}
-        colEnd={colEnd}
-        onClick={this.handleClick}
-        background={background}
-      >
-        <CoverTopHalf />
-        <CoverBottomHalf />
+      <StyledGridItem>
+        <Img fluid={fluid} />
+        <CoverTopHalf>
+          <h2>{title}</h2>
+        </CoverTopHalf>
+        <CoverBottomHalf>
+          <h3>{description}</h3>
+        </CoverBottomHalf>
       </StyledGridItem>
     );
   }
@@ -26,26 +24,32 @@ const StyledGridItem = styled.div`
   padding: 0;
   height: 55vw;
   width: 55vw;
-  margin: 0 auto;
-  margin-top: 30px;
-  background-color: ${props => `${props.background}`};
+  margin: 2rem;
+  overflow: hidden;
+  border-radius: 5px;
+  box-shadow: rgba(245,245,245,0.3) 0px 0px 10px 2px;
+  div h2,h3 {
+    font-size: 18px;
+  }
+
   & :hover {
     div {
-      height: 27.5vw;
+      transform: translateY(0px);
     }
   }
 
 
   @media (min-width: 769px) {
-    grid-area: ${props =>
-       `${props.rowStart} / ${props.colStart} / ${props.rowEnd} / ${props.colEnd}`};
-       
-    height: 200px;
-    width: 200px;
-    margin-top: 0;
+    height: 400px;
+    width: 400px;
+
+    div h2,h3 {
+      font-size: 1.73286rem;
+    }
+    
     & :hover {
       div {
-        height: 100px;
+        transform: translateY(0px);
       }
     }
   }
@@ -54,29 +58,42 @@ const StyledGridItem = styled.div`
 
 const CoverTopHalf = styled.div`
   width: 55vw;
-  height: 0;
+  height: 27.5vw;
   position: absolute;
   top: 0;
   left: 0;
-  background-color: hsla(0,0%,0%,0.45);
-  transition: height .3s ease-out;
+  background-color: hsla(0, 0%, 0%, 0.75);
+  transition: all 0.3s ease-out;
+  transform: translateY(-27.5vw);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
   @media (min-width: 769px) {
-    width: 200px;
-    height: 0px
+    transform: translateY(-200px);
+    width: 400px;
+    height: 200px;
   }
-`
+`;
 
 const CoverBottomHalf = styled.div`
   width: 55vw;
-  height: 0;
+  height: 27.5vw;
   position: absolute;
   bottom: 0;
   right: 0;
-  background-color: hsla(0,0%,0%,0.45);
-  transition: height .3s ease-out;
-  @media (min-width: 769px) { 
-    width: 200px;
-    height: 0px;
+  background-color: hsla(0, 0%, 0%, 0.75);
+  transition: all 0.3s ease-out;
+  transform: translateY(27.5vw);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  @media (min-width: 769px) {
+    width: 400px;
+    height: 200px;
+    transform: translateY(200px);
   }
-
-`
+`;

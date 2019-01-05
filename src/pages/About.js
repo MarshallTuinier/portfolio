@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 import Layout from "../components/Layout";
 import Subpage from "../components/Subpage";
 export default class About extends Component {
@@ -8,24 +10,33 @@ export default class About extends Component {
         <Subpage>
           <h1>ABOUT</h1>
           <p>
-            Lorem ipsum dolor amet tattooed pop-up sriracha banh mi, succulents
-            gochujang celiac chambray lyft four loko scenester. Tbh 90's woke,
-            pitchfork fashion axe polaroid mixtape edison bulb tilde ennui.
-            Hexagon poke hell of, palo santo helvetica man bun ramps aesthetic.
-            Butcher hot chicken asymmetrical, selvage freegan distillery raw
-            denim seitan franzen pabst authentic selfies keytar tbh next level.
-            Jean shorts knausgaard pitchfork disrupt.
+            As a web developer, I am focused on building beatiful, performant,
+            and scalable websites, web apps, and UIs. My passion is working to
+            build software to improve the lives of those around me, leveraging
+            the modern JavaScript ecosystem, with a focus on React, Webpack,
+            Node, and GraphQL.
           </p>
           <p>
-            PBR&B austin neutra drinking vinegar. Pok pok keffiyeh hexagon viral
-            jianbing. Tousled pok pok plaid typewriter, master cleanse hoodie
-            gluten-free poke paleo. Cray stumptown lomo shabby chic
-            chicharrones. Edison bulb shabby chic hammock pour-over af brooklyn
-            authentic fashion axe street art occupy vape leggings gochujang
-            wayfarers hexagon.
+            Outside of coding, I have a variety of hobbies including
+            woodworking, jazz guitar, luthery, and strategy board games. I love
+            attending concerts, traveling, and spending time with my wife Taylor
+            and baby girl Rory.
           </p>
+          <Img fluid={this.props.data.family.childImageSharp.fluid} style={{ maxWidth: "800px", margin: "2rem auto", borderRadius: "5px"}} />
         </Subpage>
       </Layout>
     );
   }
 }
+
+export const query = graphql`
+  query {
+    family: file(relativePath: { eq: "family.JPG" }) {
+      childImageSharp {
+        fluid(maxWidth: 1200) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`

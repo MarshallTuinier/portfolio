@@ -4,20 +4,20 @@ import Layout from "../components/Layout";
 import styled from "styled-components";
 
 class indexPage extends Component {
-
-
   render() {
     return (
       <Layout>
         <StyledMain>
           <h1>MARSHALL TUINIER</h1>
-          <h3>Hello! I'm a web developer from Las Vegas, Nevada.</h3>
+          <h3>
+            Hi! I'm Marshall, and I'm a full-stack web developer from Las Vegas,
+            Nevada.
+          </h3>
         </StyledMain>
         <StyledNav>
           <ul>
             <Link to="/About">ABOUT</Link>
             <Link to="/Work">WORK</Link>
-
             <Link to="/Contact">CONTACT</Link>
           </ul>
         </StyledNav>

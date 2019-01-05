@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { StaticQuery, graphql } from "gatsby";
+import Helmet from "react-helmet";
 import Img from "gatsby-image";
 import { Transition } from "../utils/Transition";
+import favicon from "../assets/favicon.png";
 
 class Layout extends Component {
   render() {
@@ -22,6 +24,23 @@ class Layout extends Component {
         `}
         render={data => (
           <StyledLayout>
+            <Helmet
+              title="Marshall Tuinier"
+              meta={[
+                {
+                  name: "description",
+                  content: "Web developer Marshall Tuinier",
+                },
+                {
+                  name: "keywords",
+                  content:
+                    "webdev, webdeveloper, gatsbyjs, reactjs, frontend, graphql, developer, app, webapp, javascript",
+                },
+              ]}
+              link={[
+                { rel: "shortcut icon", type: "image/png", href: `${favicon}` },
+              ]}
+            />
             <Img
               fluid={data.background.childImageSharp.fluid}
               style={{

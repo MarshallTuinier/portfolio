@@ -4,7 +4,7 @@ export default styled.article`
   position: relative;
   margin: 0 auto;
   width: 85vw;
-  max-width: 850px;
+  max-width: 1200px;
   min-width: 320px;
   height: 80vh;
   border-radius: 5px;

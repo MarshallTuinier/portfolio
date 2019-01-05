@@ -4,7 +4,6 @@ import Subpage from "../components/Subpage";
 import styled from "styled-components";
 import Github from '../assets/svg/github'
 import Linkedin from '../assets/svg/Linkedin'
-import Twitter from '../assets/svg/Twitter'
 import { validateEmail } from "../utils/validateEmail";
 export default class Contact extends Component {
   state = {
@@ -122,7 +121,7 @@ export default class Contact extends Component {
             <StyledLink href="https://github.com/marshalltuinier" target="_blank" rel="noopener noreferrer">
               <Github />
             </StyledLink>
-            <StyledLink href="https://linkedin.com/marshalltuinier" target="_blank" rel="noopener noreferrer">
+            <StyledLink href="https://www.linkedin.com/in/marshall-tuinier-051b69a4/" target="_blank" rel="noopener noreferrer">
               <Linkedin />
             </StyledLink>
           </IconContainer>
