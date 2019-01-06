@@ -36,7 +36,7 @@ export default class Subpage extends Component {
 const Close = styled.button`
   position: absolute;
   top: 2rem;
-  right: 5rem;
+  right: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
