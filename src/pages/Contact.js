@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import Layout from "../components/Layout";
 import Subpage from "../components/Subpage";
 import styled from "styled-components";
-import Github from '../assets/svg/github'
-import Linkedin from '../assets/svg/Linkedin'
+import Github from "../assets/svg/github";
+import Linkedin from "../assets/svg/Linkedin";
 import { validateEmail } from "../utils/validateEmail";
 export default class Contact extends Component {
   state = {
@@ -14,12 +14,24 @@ export default class Contact extends Component {
     isEmailValid: true,
   };
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
     if (!validateEmail(this.state.email)) {
       this.setState({ isEmailValid: false });
       return;
     } else {
+      try {
+        await fetch("https://marshalltuinier.com/submitcontact/", {
+          method: "POST",
+          mode: "no-cors",
+          body: JSON.stringify({ ...this.state }),
+          headers: {
+            "Content-Type": "application/JSON",
+          },
+        });
+      } catch (error) {
+        console.log("Sorry, an error has occured");
+      }
       this.setState({
         name: "",
         email: "",
@@ -29,7 +41,6 @@ export default class Contact extends Component {
       });
     }
   };
-
 
   render() {
     return (
@@ -96,15 +107,22 @@ export default class Contact extends Component {
             </Button>
           </Form>
           <IconContainer>
-            <StyledLink href="https://github.com/marshalltuinier" target="_blank" rel="noopener noreferrer">
+            <StyledLink
+              href="https://github.com/marshalltuinier"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Github />
             </StyledLink>
-            <StyledLink href="https://www.linkedin.com/in/marshall-tuinier-051b69a4/" target="_blank" rel="noopener noreferrer">
+            <StyledLink
+              href="https://www.linkedin.com/in/marshall-tuinier-051b69a4/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Linkedin />
             </StyledLink>
           </IconContainer>
         </Subpage>
-
       </Layout>
     );
   }
@@ -167,7 +185,7 @@ const Button = styled.button`
   border-radius: 5px;
   border: none;
   outline: none;
-  background:#FFF;
+  background: #fff;
 
   & :active {
     transform: translateY(1px);
@@ -176,19 +194,15 @@ const Button = styled.button`
 
 const StyledLink = styled.a`
   svg {
-    transition: transform .25s ease;
+    transition: transform 0.25s ease;
     &:hover {
       transform: scale(1.2);
     }
   }
-`
+`;
 const IconContainer = styled.div`
   width: 8rem;
   display: flex;
   justify-content: space-between;
   margin: 2.5rem 0 0 0;
-`
-
-
-
-
+`;
