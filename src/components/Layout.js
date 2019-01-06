@@ -44,7 +44,7 @@ class Layout extends Component {
             <Img
               fluid={data.background.childImageSharp.fluid}
               style={{
-                position: "fixed",
+                position: "absolute",
                 left: 0,
                 top: 0,
                 width: "100%",
