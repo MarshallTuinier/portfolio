@@ -44,7 +44,7 @@ class Layout extends Component {
             <Img
               fluid={data.background.childImageSharp.fluid}
               style={{
-                position: "absolute",
+                position: "fixed",
                 left: 0,
                 top: 0,
                 width: "100%",
@@ -64,7 +64,6 @@ class Layout extends Component {
 
 const StyledLayout = styled.main`
   width: 100%;
-  height: 100vh;
   color: white;
   display: flex;
   flex-direction: column;
@@ -95,7 +94,6 @@ const BgMask = styled.div`
   top: 0;
   left: 0;
   z-index: 0;
-  overflow: hidden;
 `;
 
 export default Layout;

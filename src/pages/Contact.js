@@ -30,13 +30,6 @@ export default class Contact extends Component {
     }
   };
 
-  handleClear = () => {
-    this.setState({
-      name: "",
-      email: "",
-      message: "",
-    });
-  };
 
   render() {
     return (
@@ -98,23 +91,8 @@ export default class Contact extends Component {
               htmlFor="contact"
               type="submit"
               onSubmit={this.handleSubmit}
-              style={{
-                background: "#FFF"
-              }}
             >
               SUBMIT
-            </Button>
-            <Button
-              type="button"
-              onClick={this.handleClear}
-              style={{
-                background: "transparent",
-                color: "white",
-                border: "1px solid #FFF",
-                marginLeft: "2rem",
-              }}
-            >
-              CLEAR
             </Button>
           </Form>
           <IconContainer>
@@ -189,6 +167,7 @@ const Button = styled.button`
   border-radius: 5px;
   border: none;
   outline: none;
+  background:#FFF;
 
   & :active {
     transform: translateY(1px);

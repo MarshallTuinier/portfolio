@@ -28,6 +28,7 @@ class indexPage extends Component {
 const StyledMain = styled.div`
   height: 100%;
   margin: 0 auto;
+  margin-top: 35%;
   position: relative;
   width: 85vw;
   max-width: 700px;
@@ -87,10 +88,12 @@ const StyledNav = styled.nav`
       letter-spacing: 0.2rem;
       font-size: 12pt;
       font-weight: 100;
+
       transition: background-color 0.2s ease-in-out;
       & :hover {
         background-color: hsla(0, 0%, 100%, 0.175);
         text-decoration: none;
+        color: white;
         cursor: pointer;
       }
       & :first-of-type {

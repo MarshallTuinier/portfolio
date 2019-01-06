@@ -13,7 +13,10 @@ class Transition extends Component {
   render() {
     const { isVisible } = this.state;
     return (
-      <Reveal pose={isVisible ? "visible" : "hidden"}>
+      <Reveal
+        pose={isVisible ? "visible" : "hidden"}
+        style={{ display: "flex", flexDirection: "column" }}
+      >
         {this.props.children}
       </Reveal>
     );
