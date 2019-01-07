@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 import Layout from "../components/Layout";
 import Subpage from "../components/Subpage";
 import styled from "styled-components";
@@ -20,16 +21,11 @@ export default class Contact extends Component {
       this.setState({ isEmailValid: false });
       return;
     } else {
-      const body = JSON.stringify({ ...this.state });
       try {
-        await fetch("https://marshalltuinier.com/submitcontact/", {
-          method: "POST",
-          mode: "no-cors",
-          body,
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+        await axios.post(
+          "https://marshalltuinier.com/submitcontact/",
+          this.state
+        );
       } catch (error) {
         console.log("Sorry, an error has occured");
       }
