@@ -20,13 +20,14 @@ export default class Contact extends Component {
       this.setState({ isEmailValid: false });
       return;
     } else {
+      const body = JSON.stringify({ ...this.state });
       try {
         await fetch("https://marshalltuinier.com/submitcontact/", {
           method: "POST",
           mode: "no-cors",
-          body: JSON.stringify({ ...this.state }),
+          body,
           headers: {
-            "Content-Type": "application/JSON",
+            "Content-Type": "application/json",
           },
         });
       } catch (error) {
